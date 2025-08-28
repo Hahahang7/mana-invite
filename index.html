@@ -1,62 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MANA MANA 入群与客服</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MANA MANA｜入群与客服</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      background-color: #f9f9f9;
+    :root{
+      --bg:#f7f7f7; --fg:#222; --muted:#666; --card:#fff; --brand:#0a7cff;
     }
-    h1 {
-      color: #333;
-      margin-bottom: 10px;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial;
+      background:var(--bg); color:var(--fg);
     }
-    p {
-      color: #555;
-      font-size: 16px;
-      margin: 5px 0 20px 0;
+    .wrap{max-width:900px;margin:0 auto;padding:20px}
+    header{ text-align:center; padding:10px 0 0 }
+    h1{ margin:6px 0 4px; font-size:22px }
+    p.lead{ margin:0 0 14px; color:var(--muted); font-size:14px }
+    .grid{
+      display:grid; grid-template-columns:1fr; gap:16px; margin-top:14px;
     }
-    .qr-box {
-      display: inline-block;
-      margin: 20px;
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    @media (min-width:720px){
+      .grid{grid-template-columns:1fr 1fr}
     }
-    .qr-box img {
-      width: 260px;
-      border-radius: 5px;
+    .card{
+      background:var(--card); border-radius:14px; padding:16px;
+      box-shadow:0 6px 20px rgba(0,0,0,.06);
+      text-align:center;
     }
-    .label {
-      font-size: 14px;
-      color: #777;
-      margin-top: 10px;
+    .card h2{ margin:6px 0 10px; font-size:18px }
+    .qr{
+      width:min(280px,90%); display:block; margin:10px auto; border-radius:10px;
+      border:1px solid #eee;
+    }
+    .hint{font-size:12px; color:var(--muted); margin-top:6px}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none;
+      background:var(--brand); color:#fff; font-weight:600; margin-top:10px;
+    }
+    .poster{
+      width:100%; border-radius:14px; border:1px solid #eee; display:block;
+    }
+    footer{
+      text-align:center; color:#999; font-size:12px; margin:18px 0 8px;
     }
   </style>
 </head>
 <body>
-  <h1>欢迎来到 MANA MANA！</h1>
-  <p>选择下面的方式，加入我们的服务或联系客服</p>
+  <div class="wrap">
+    <header>
+      <h1>MANA MANA</h1>
+      <p class="lead">加入社群 / 添加客服｜最新入口在此页，二维码更新后无需更换海报</p>
+    </header>
 
-  <!-- 客服二维码 -->
-  <div class="qr-box">
-    <img src="https://hahahang7.github.io/mana-invite/kefu.jpg" alt="客服二维码">
-    <div class="label">扫码添加客服微信</div>
+    <!-- 海报展示区（请上传 poster.jpg 到仓库根目录） -->
+    <section class="card" aria-label="最新海报">
+      <h2>最新活动海报</h2>
+      <img class="poster" src="./poster.jpg" alt="MANA MANA 最新活动海报" loading="lazy" />
+      <div class="hint">需要保存？请<strong>截图保存</strong>此海报。</div>
+    </section>
+
+    <!-- 二维码区 -->
+    <section class="grid" aria-label="二维码入口">
+      <div class="card">
+        <h2>添加客服微信</h2>
+        <img class="qr" src="./kefu.jpg" alt="客服微信二维码" loading="lazy" />
+        <div class="hint">若群满或链接过期，请<strong>先添加客服</strong>，我们将拉您入群。<br>需要保存？请<strong>截图保存</strong>此二维码。</div>
+      </div>
+
+      <div class="card">
+        <h2>加入 MANA MANA 群</h2>
+        <img class="qr" src="./group.jpg" alt="群聊二维码" loading="lazy" />
+        <a class="btn" href="https://weixin.qq.com/" aria-label="备用：打开微信">无法扫码？点此打开微信</a>
+        <div class="hint">若显示过期，请使用上方“添加客服”。<br>需要保存？请<strong>截图保存</strong>此二维码。</div>
+      </div>
+    </section>
+
+    <footer>© MANA MANA · 本页为固定入口，后续仅需替换图片或更新链接</footer>
   </div>
-
-  <!-- 群聊二维码 -->
-  <div class="qr-box">
-    <img src="https://hahahang7.github.io/mana-invite/group.jpg" alt="群聊二维码">
-    <div class="label">扫码加入 Mana Mana 社群</div>
-  </div>
-
-  <p style="color:#999; font-size:12px; margin-top:20px;">
-    如果群二维码过期，请先添加客服微信，由客服邀请您入群。
-  </p>
 </body>
 </html>
