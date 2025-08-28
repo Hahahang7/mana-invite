@@ -6,77 +6,76 @@
   <title>MANA MANA｜入群与客服</title>
   <style>
     :root{
-      --bg:#f7f7f7; --fg:#222; --muted:#666; --card:#fff; --brand:#0a7cff;
+      /* Brand palette: soft cream + coffee brown + warm orange */
+      --bg:#FFF7EA;          /* 米色背景 */
+      --fg:#5B4632;          /* 咖啡棕正文 */
+      --muted:#8A7866;       /* 次级文字 */
+      --card:#FFFBF3;        /* 卡片浅底 */
+      --line:#E8DCCB;        /* 细分隔线 */
+      --accent:#D89533;      /* 暖橙点缀 */
     }
     *{box-sizing:border-box}
-    body{
-      margin:0; font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial;
-      background:var(--bg); color:var(--fg);
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+      font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC",Segoe UI,Roboto,Helvetica,Arial,"Noto Sans CJK SC",sans-serif;}
+    .wrap{max-width:980px;margin:0 auto;padding:18px 16px 28px}
+    header{display:flex;align-items:center;gap:12px;padding:6px 2px 10px}
+    .logo{
+      width:42px;height:42px;border-radius:12px;background:var(--card);border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);letter-spacing:.5px;
     }
-    .wrap{max-width:900px;margin:0 auto;padding:20px}
-    header{ text-align:center; padding:10px 0 0 }
-    h1{ margin:6px 0 4px; font-size:22px }
-    p.lead{ margin:0 0 14px; color:var(--muted); font-size:14px }
-    .grid{
-      display:grid; grid-template-columns:1fr; gap:16px; margin-top:14px;
-    }
-    @media (min-width:720px){
-      .grid{grid-template-columns:1fr 1fr}
-    }
-    .card{
-      background:var(--card); border-radius:14px; padding:16px;
-      box-shadow:0 6px 20px rgba(0,0,0,.06);
-      text-align:center;
-    }
-    .card h2{ margin:6px 0 10px; font-size:18px }
-    .qr{
-      width:min(280px,90%); display:block; margin:10px auto; border-radius:10px;
-      border:1px solid #eee;
-    }
-    .hint{font-size:12px; color:var(--muted); margin-top:6px}
-    .btn{
-      display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none;
-      background:var(--brand); color:#fff; font-weight:600; margin-top:10px;
-    }
+    h1{margin:0;font-size:20px;font-weight:700;letter-spacing:.6px}
+    .sub{margin:4px 0 0;color:var(--muted);font-size:13px}
     .poster{
-      width:100%; border-radius:14px; border:1px solid #eee; display:block;
+      width:100%;display:block;border-radius:16px;border:1px solid var(--line);
+      box-shadow:0 10px 30px rgba(91,70,50,.08);
     }
-    footer{
-      text-align:center; color:#999; font-size:12px; margin:18px 0 8px;
+    .section{margin-top:16px}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+    @media (min-width:720px){ .grid{grid-template-columns:1fr 1fr} }
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 14px 16px;text-align:center;
+      box-shadow:0 10px 26px rgba(91,70,50,.06);
     }
+    .qr{width:min(280px,90%);display:block;margin:8px auto 6px;border-radius:12px;border:1px solid var(--line);background:#fff}
+    .title{font-size:16px;font-weight:600;margin:2px 0 6px}
+    .hint{font-size:12px;color:var(--muted)}
+    .sep{height:1px;background:var(--line);margin:18px 0 10px;border-radius:1px}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:12px}
+    /* small accent line on top */
+    .accent{height:3px;background:linear-gradient(90deg,var(--accent),#E6B05C 60%,var(--accent));border-radius:3px;margin:10px 0 14px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>MANA MANA</h1>
-      <p class="lead">加入社群 / 添加客服｜最新入口在此页，二维码更新后无需更换海报</p>
+      <!-- 如果你有 logo 图片，替换下行为：<img src="./logo.png" alt="MANA MANA" class="logo" style="width:42px;height:42px;border:none;"> -->
+      <div class="logo">MM</div>
+      <div>
+        <h1>MANA MANA</h1>
+        <div class="sub">入群与客服 · 固定入口（后续仅替换图片即可）</div>
+      </div>
     </header>
 
-    <!-- 海报展示区（请上传 poster.jpg 到仓库根目录） -->
-    <section class="card" aria-label="最新海报">
-      <h2>最新活动海报</h2>
-      <img class="poster" src="./poster.jpg" alt="MANA MANA 最新活动海报" loading="lazy" />
-      <div class="hint">需要保存？请<strong>截图保存</strong>此海报。</div>
-    </section>
+    <div class="accent"></div>
 
-    <!-- 二维码区 -->
-    <section class="grid" aria-label="二维码入口">
+    <!-- 仅展示海报，不加“最新海报”等标签 -->
+    <img class="poster" src="./poster.jpg" alt="MANA MANA 海报" loading="lazy" />
+
+    <div class="section grid" aria-label="二维码入口">
       <div class="card">
-        <h2>添加客服微信</h2>
+        <div class="title">添加客服微信</div>
         <img class="qr" src="./kefu.jpg" alt="客服微信二维码" loading="lazy" />
-        <div class="hint">若群满或链接过期，请<strong>先添加客服</strong>，我们将拉您入群。<br>需要保存？请<strong>截图保存</strong>此二维码。</div>
+        <div class="hint">群满或链接过期 → 先加客服，我们会拉您入群。需要保存？请<strong>截图保存</strong>。</div>
       </div>
-
       <div class="card">
-        <h2>加入 MANA MANA 群</h2>
-        <img class="qr" src="./group.jpg" alt="群聊二维码" loading="lazy" />
-        <a class="btn" href="https://weixin.qq.com/" aria-label="备用：打开微信">无法扫码？点此打开微信</a>
-        <div class="hint">若显示过期，请使用上方“添加客服”。<br>需要保存？请<strong>截图保存</strong>此二维码。</div>
+        <div class="title">加入社群</div>
+        <img class="qr" src="./group.jpg" alt="社群二维码" loading="lazy" />
+        <div class="hint">若提示过期，请走“添加客服”。需要保存？请<strong>截图保存</strong>。</div>
       </div>
-    </section>
+    </div>
 
-    <footer>© MANA MANA · 本页为固定入口，后续仅需替换图片或更新链接</footer>
+    <div class="sep"></div>
+    <footer>© MANA MANA · 让制作回到厨房，将品控放在心上</footer>
   </div>
 </body>
 </html>
